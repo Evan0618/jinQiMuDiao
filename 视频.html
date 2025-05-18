@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-family: 'Noto Serif SC', serif;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.footer{
+    margin-left: 3vw;
+    margin-top: -3vh;
+}
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./素材/背景图2.jpg) no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+.title{
+    height: 11vh;
+    text-align: center;
+    font-size:1.5rem;
+    margin-top: 5vh;
+    overflow: hidden;
+}
+.shiPing{
+    width: 85%;
+    height: 60vw;
+    margin: 5vh auto;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.shiPing video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: black;
+}
+</style>
+
+<body>
+    <div class="background"></div>
+    <div class="title">
+        <h1>视频介绍</h1>
+    </div>
+    <div class="shiPing">
+        <video controls loop muted id="myVideo">
+            <source src="./素材/视频.mp4" type="video/mp4">
+            您的浏览器不支持 HTML5 视频标签
+        </video>
+    </div>
+    <div class="footer">
+        <a href="./index.html">&lt;&#160;感谢观看，点击此处返回首页！</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('myVideo');
+            
+            // 尝试从本地存储获取保存的播放时间
+            const savedTime = localStorage.getItem('videoCurrentTime');
+            
+            if (savedTime) {
+                video.currentTime = parseFloat(savedTime);
+            }
+            
+            // 每隔1秒保存当前播放时间
+            video.addEventListener('timeupdate', function() {
+                localStorage.setItem('videoCurrentTime', video.currentTime);
+            });
+            
+            // 页面卸载前保存当前播放时间
+            window.addEventListener('beforeunload', function() {
+                localStorage.setItem('videoCurrentTime', video.currentTime);
+            });
+            
+            // 点击播放按钮时取消静音
+            video.addEventListener('play', function() {
+                video.muted = false;
+            });
+            
+            // 确保用户首次交互后可以播放声音
+            document.addEventListener('click', function() {
+                video.muted = false;
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Noto Serif SC', serif;
+}
+html, body {
+    height: 100%;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./素材/背景图2.jpg) no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+.content{
+    overflow-y: auto;
+    position: relative;
+}
+.wu{
+    width: 85%;
+    height: 28vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+.title{
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.wu-content {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+.zuoTu{
+    width: 35%;
+    height: 100%;
+    margin-left: 15px;
+    margin-top: -15px;
+    
+}
+.youTu{
+    width: 35%;
+    height: 100%;
+    margin-top: -15px;
+    margin-right: 15px;
+}
+.youWen{
+    width: 50%;
+    height: 95%;
+    margin-top: -15px;
+    margin-right: 15px;
+}
+.zuoWen{
+    width: 50%;
+    height: 95%;
+    margin-left: 15px;
+    margin-top: -15px;
+}
+.diBu{
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-top: 2vh;
+    height: 5vh;
+}
+
+.title {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* 左渐入动画 */
+.zuoTu, .zuoWen {
+    opacity: 0;
+    animation: slideInLeft 2s ease-in-out forwards;
+}
+
+/* 右渐入动画 */
+.youTu, .youWen {
+    opacity: 0;
+    animation: slideInRight 2s ease-in-out forwards;
+}
+
+.diBu {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* 渐入动画定义 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 从左滑入 */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 从右滑入 */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 设置不同元素的动画延迟 */
+.title { animation-delay: 0.2s; }
+.zuoTu, .youTu { animation-delay: 0.4s; }
+.zuoWen, .youWen { animation-delay: 0.6s; }
+.diBu { animation-delay: 0.8s; }
+</style>
+
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <div class="wu">
+            <div class="title">
+                <h3>龙凤呈祥·生旦对戏立屏雕</h3>
+            </div>
+            <div class="wu-content">
+                <div class="zuoTu"
+                     style="background: url(./素材/1.jpg) no-repeat center center;
+                     background-size: cover;"
+                ></div>
+                <div class="youWen">
+                    <p style="font-size: 12px;">
+                        作品呈现了戏曲中一生一旦的经典组合：
+                        男性角色黑髯长垂，冠帽镶金，靠旗张扬；女性角色凤冠霞帔，戏服纹饰雍容。
+                        二人相对而立，姿态端庄，背景为青绿色单色衬底，突出人物庄重气质。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="wu">
+            <div class="title">
+                <h3>四雅同辉·亭台人物群像雕</h3>
+            </div>
+            <div class="wu-content">
+                <div class="zuoWen">
+                    <p style="font-size: 12px;">
+                    作品刻画了四位传统人物于亭台楼阁间互动，或执扇、或拱手，似在吟诗作对。
+                    背景配以飞檐翘角的古亭、层叠的扇形树叶及绽放的花朵，营造文人雅集之境。
+                    人物服饰以金线勾勒，亭台结构精巧，树木枝叶繁而不乱。
+                    </p>
+                </div>
+                <div class="youTu"
+                     style="background: url(./素材/2.jpg) no-repeat center center;
+                     background-size: cover;"
+                ></div>
+            </div>
+        </div>
+        <div class="wu">
+            <div class="title">
+                <h3>梨园神韵·金龙戏花拱形雕</h3>
+            </div>
+            <div class="wu-content">
+                <div class="zuoTu"
+                     style="background: url(./素材/3.jpg) no-repeat center center;
+                     background-size: cover;"
+            ></div>
+                <div class="youWen">
+                    <p style="font-size: 10px;">
+                        作品以经典戏曲人物为主角，人物身着金光璀璨的戏服，面部勾画传统脸谱，眉眼传神。
+                        头冠缀满珠翠，衣袍绣有繁复花纹，双手姿态如兰花，尽显戏曲程式之美。
+                        主体被置于拱形框架内，四周环绕蜿蜒的龙纹与盛放的花卉浮雕，龙身灵动矫健，花卉娇艳欲滴。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="diBu">
+            <a href="./index.html" style="margin-left: 3vw;"><p>&lt;&#160;返回</p></a>
+            <a href="./视频.html" style="margin-right: 3vw;"><p>了解更多&#160;&gt;</p></a>
+        </div>
+    </div>
+</body>
+</html>
